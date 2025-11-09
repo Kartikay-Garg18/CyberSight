@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const API_URL = 'http://localhost:5000/api/logs';
+const API_URL = 'https://cybersight.onrender.com/api/logs';
 
 const dummyLogs = [
   { type: 'firewall', source_ip: '192.168.1.10', action: 'allow', protocol: 'TCP' },
