@@ -14,13 +14,18 @@ const server = http.createServer(app);
 // Setup Socket.IO with CORS
 const io = new Server(server, {
   cors: {
-    origin: "https://cyber-sight.vercel.app",
-    methods: ["GET", "POST"]
-  }
+    origin: 'https://cyber-sight.vercel.app', // Allow only your frontend domain
+    methods: ['GET', 'POST'],
+  },
 });
 
 // Middleware
-app.use(cors());
+const corsOptions = {
+  origin: 'https://cyber-sight.vercel.app', // Allow only your frontend domain
+  methods: ['GET', 'POST'],
+  credentials: true, // Allow cookies and credentials if needed
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Make io accessible to our routes
@@ -63,10 +68,11 @@ io.on('connection', (socket) => {
 });
 
 const PORT = process.env.PORT || 5000;
+const HOST = '0.0.0.0';
 
 // Initialize database and start server
 initializeDatabase().then(() => {
-  server.listen(PORT, () => {
-    logger.info(`Server is running on port ${PORT}`);
+  server.listen(PORT, HOST, () => {
+    logger.info(`Server is running on http://${HOST}:${PORT}`);
   });
 });
