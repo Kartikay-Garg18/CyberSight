@@ -25,7 +25,7 @@ function Dashboard() {
       .catch(err => console.error('Error fetching alerts:', err));
 
     // Connect to Socket.IO
-    const socket = io('http://localhost:5000');
+    const socket = io('https://cybersight.onrender.com');
 
     socket.on('connect', () => {
       console.log('Connected to WebSocket');
