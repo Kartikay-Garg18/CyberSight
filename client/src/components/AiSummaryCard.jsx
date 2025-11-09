@@ -12,20 +12,23 @@ const severityConfig = {
 function AiSummaryCard({ alert }) {
   if (!alert) {
     return (
-      <div className="glass-card p-6 sticky top-24">
-        <div className="flex items-center space-x-2 mb-4">
-          <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center glow-green">
-            <img src={lightbulbIcon} alt="Lightbulb" className="w-5 h-5 brightness-0 invert" />
+      <div className="bg-[#16213e] border border-[#2a2a3e] rounded-xl p-6 sticky top-24">
+        <div className="flex items-center space-x-3 mb-6 pb-4 border-b border-[#2a2a3e]">
+          <div className="w-10 h-10 bg-violet-500/20 rounded-lg flex items-center justify-center border border-violet-500/30">
+            <img src={lightbulbIcon} alt="Lightbulb" className="w-5 h-5 brightness-0 invert opacity-80" />
           </div>
-          <h2 className="text-xl font-bold text-white">AI Analysis</h2>
+          <div>
+            <h2 className="text-lg font-bold text-white">AI Analysis</h2>
+            <p className="text-xs text-gray-400">Gemini AI</p>
+          </div>
         </div>
         
         <div className="flex flex-col items-center justify-center py-12 text-center">
-          <div className="w-20 h-20 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-full flex items-center justify-center mb-4">
-            <img src={infoIcon} alt="Info" className="w-10 h-10 opacity-60" />
+          <div className="w-20 h-20 bg-[#1a1a2e] rounded-xl flex items-center justify-center mb-4 border border-[#2a2a3e]">
+            <img src={infoIcon} alt="Info" className="w-10 h-10 opacity-50" />
           </div>
-          <p className="text-gray-400 mb-2">No alert selected</p>
-          <p className="text-sm text-gray-500">Select an alert to see the AI-powered analysis</p>
+          <p className="text-gray-300 mb-2 font-semibold">No alert selected</p>
+          <p className="text-sm text-gray-500 max-w-xs">Select an alert to view AI analysis</p>
         </div>
       </div>
     );
@@ -34,55 +37,52 @@ function AiSummaryCard({ alert }) {
   const config = severityConfig[alert.severity?.toLowerCase()] || severityConfig['low'];
 
   return (
-    <div className="glass-card p-6 sticky top-24">
-      <div className="flex items-center space-x-2 mb-6">
-        <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center glow-green float">
-          <img src={lightbulbIcon} alt="Lightbulb" className="w-5 h-5 brightness-0 invert" />
+    <div className="bg-[#16213e] border border-[#2a2a3e] rounded-xl p-6 sticky top-24">
+      <div className="flex items-center space-x-3 mb-6 pb-4 border-b border-[#2a2a3e]">
+        <div className="w-10 h-10 bg-violet-500/20 rounded-lg flex items-center justify-center border border-violet-500/30">
+          <img src={lightbulbIcon} alt="Lightbulb" className="w-5 h-5 brightness-0 invert opacity-80" />
         </div>
-        <h2 className="text-xl font-bold text-white">AI Analysis</h2>
+        <div>
+          <h2 className="text-lg font-bold text-white">AI Analysis</h2>
+          <p className="text-xs text-gray-400">Gemini AI</p>
+        </div>
       </div>
       
-      <div className="space-y-5">
-        <div className={`${config.bg} ${config.border} border rounded-lg p-4 transition-transform hover:scale-105`}>
-          <p className="text-xs text-gray-400 mb-1">Severity Level</p>
+      <div className="space-y-4">
+        <div className={`${config.bg} ${config.border} border rounded-lg p-4`}>
+          <p className="text-xs text-gray-400 mb-2 font-semibold uppercase">Severity</p>
           <p className={`text-2xl font-bold ${config.color} uppercase`}>{alert.severity}</p>
         </div>
 
-        <div className="border border-slate-600/50 rounded-lg p-4 bg-slate-800/30">
-          <p className="text-xs text-gray-400 mb-1">Threat Type</p>
+        <div className="bg-[#1a1a2e] border border-[#2a2a3e] rounded-lg p-4">
+          <p className="text-xs text-gray-400 mb-2 font-semibold uppercase">Threat Type</p>
           <p className="text-white font-semibold">{alert.threat_type}</p>
         </div>
 
-        <div className="border border-slate-600/50 rounded-lg p-4 bg-slate-800/30">
-          <p className="text-xs text-gray-400 mb-2">Description</p>
+        <div className="bg-[#1a1a2e] border border-[#2a2a3e] rounded-lg p-4">
+          <p className="text-xs text-gray-400 mb-2 font-semibold uppercase">Description</p>
           <p className="text-sm text-gray-300 leading-relaxed">{alert.description}</p>
         </div>
 
-        <div className="border border-slate-600/50 rounded-lg p-4 bg-slate-800/30">
-          <p className="text-xs text-gray-400 mb-1">Source IP</p>
-          <p className="text-white font-mono text-sm">{alert.source_ip}</p>
+        <div className="bg-[#1a1a2e] border border-[#2a2a3e] rounded-lg p-4">
+          <p className="text-xs text-gray-400 mb-2 font-semibold uppercase">Source IP</p>
+          <p className="text-white font-mono text-sm bg-[#0f0f1e] px-3 py-2 rounded border border-[#2a2a3e]">{alert.source_ip}</p>
         </div>
 
-        <div className="border border-slate-600/50 rounded-lg p-4 bg-slate-800/30">
-          <p className="text-xs text-gray-400 mb-1">Detected At</p>
-          <p className="text-white text-sm">{new Date(alert.timestamp).toLocaleString()}</p>
+        <div className="bg-[#1a1a2e] border border-[#2a2a3e] rounded-lg p-4">
+          <p className="text-xs text-gray-400 mb-2 font-semibold uppercase">Detected At</p>
+          <p className="text-white text-sm font-mono bg-[#0f0f1e] px-3 py-2 rounded border border-[#2a2a3e]">{new Date(alert.timestamp).toLocaleString()}</p>
         </div>
 
         {alert.ai_reason && (
-          <div className="border border-emerald-500/30 rounded-lg p-4 bg-emerald-500/5">
-            <p className="text-xs text-emerald-400 mb-2 flex items-center space-x-1">
+          <div className="bg-[#1a1a2e] border border-violet-500/30 rounded-lg p-4">
+            <p className="text-xs text-violet-400 mb-3 flex items-center space-x-2 font-semibold uppercase">
               <span>🤖</span>
               <span>AI Reasoning</span>
             </p>
             <p className="text-sm text-gray-300 leading-relaxed">{alert.ai_reason}</p>
           </div>
         )}
-
-        <div className="pt-4 border-t border-slate-700">
-          <p className="text-xs text-gray-500 text-center">
-            Powered by Gemini AI
-          </p>
-        </div>
       </div>
     </div>
   );

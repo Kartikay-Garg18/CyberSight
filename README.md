@@ -1,97 +1,54 @@
-# CyberSight - AI-Powered Threat Intelligence Dashboard
+👇
 
-## Overview
-CyberSight is an AI-powered threat intelligence dashboard that leverages the Gemini API to provide real-time insights into potential security threats. The application is designed to help security professionals monitor, analyze, and respond to threats effectively.
+🛡️ CyberSight — AI-Powered Threat Intelligence Dashboard
+🧩 Problem Statement
 
-## Project Structure
-The project is divided into two main parts: the client and the server.
+In today’s digital world, small and medium-scale organizations face increasing cybersecurity threats such as brute-force attacks, unauthorized access, and data exfiltration.
+Most existing threat monitoring systems like Splunk or CrowdStrike are expensive, complex, and difficult to deploy.
 
-```
-CyberSight
-├── client                # Client-side application
-│   ├── public
-│   │   └── index.html    # Main HTML file
-│   ├── src
-│   │   ├── components     # React components
-│   │   │   ├── Dashboard.js
-│   │   │   ├── Chart.js
-│   │   │   └── ThreatList.js
-│   │   ├── services       # API service functions
-│   │   │   └── api.js
-│   │   ├── App.js         # Main application component
-│   │   └── index.js       # Entry point for client-side
-│   └── package.json       # Client dependencies and scripts
-├── server                # Server-side application
-│   ├── src
-│   │   ├── controllers     # Request handling
-│   │   │   └── threatController.js
-│   │   ├── routes          # API routes
-│   │   │   └── threatRoutes.js
-│   │   ├── services        # Interaction with Gemini API
-│   │   │   └── geminiService.js
-│   │   └── server.js       # Entry point for server-side
-│   ├── .env                # Environment variables
-│   └── package.json        # Server dependencies and scripts
-└── README.md              # Project documentation
-```
+There’s a need for an affordable, AI-powered, and easy-to-understand solution that helps organizations detect and understand security threats in real-time.
 
-## Getting Started
+🚀 Solution Overview
 
-### Prerequisites
-- Node.js (version 14 or higher)
-- npm (Node Package Manager)
+CyberSight is an AI-powered Threat Intelligence Dashboard that analyzes system logs in real-time to detect anomalies, generate alerts, and provide plain-language explanations for each threat.
 
-### Installation
+Our system leverages Gemini AI to identify suspicious patterns such as multiple failed login attempts, unusual access from foreign IPs, or abnormal data transfers — then automatically classifies them into severity levels (Low, Medium, High) and recommends actions.
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/yourusername/CyberSight.git
-   cd CyberSight
-   ```
+🔑 Key Features
 
-2. Install server dependencies:
-   ```
-   cd server
-   npm install
-   ```
+⚡ Real-time Log Monitoring: Continuously receives logs from systems or agents.
 
-3. Install client dependencies:
-   ```
-   cd ../client
-   npm install
-   ```
+🧠 AI-Based Threat Detection: Uses Google Gemini API to analyze and summarize potential attacks.
 
-4. Set up environment variables:
-   - Create a `.env` file in the `server` directory and add your API keys and other configurations.
+📊 Interactive Dashboard: Visualizes threats by severity, time, and source IP.
 
-### Running the Application
+🌍 Geo-IP Mapping: Identifies and locates suspicious IP addresses.
 
-1. Start the server:
-   ```
-   cd server
-   npm start
-   ```
+📨 AI-Powered Recommendations: Suggests mitigation actions in simple language.
 
-2. Start the client:
-   ```
-   cd ../client
-   npm start
-   ```
+🔔 Instant Alerts: Notifies users when high-severity threats are detected.
 
-3. Open your browser and navigate to `http://localhost:3000` to view the dashboard.
+🧠 Tech Stack
+Layer	Technology
+Frontend	React.js, TailwindCSS, Recharts, Socket.IO-client
+Backend	Node.js, Express.js, Socket.IO
+Database	PostgreSQL / MongoDB
+AI Engine	Google Gemini API
+Hosting	Vercel (Frontend), Render / Railway (Backend), Neon / Atlas (DB)
+🔗 GitHub Repository
 
-## Features
-- Real-time threat intelligence data visualization.
-- Interactive charts to analyze threat trends.
-- Comprehensive list of detected threats with details.
+👉 https://github.com/your-username/CyberSight
 
-## Contributing
-Contributions are welcome! Please open an issue or submit a pull request for any enhancements or bug fixes.
+🌐 Live Project
 
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+🚀 https://cybersight.vercel.app
 
-## Acknowledgments
-- Gemini API for providing threat intelligence data.
-- React for building the client-side application.
-- Express for the server-side framework.
+
+🎥 Presentation
+
+🎬https://www.canva.com/design/DAG4JUKAeKE/OcDUxPhWnnm6EM3V-iBrOQ/edit?utm_content=DAG4JUKAeKE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+Team Members
+Name                Roles                                   Work done  
+Rishabh Saraswat	  Backend Developer	                     Designed and developed backend APIs, implemented log ingestion, detection logic, and database structure.
+Kartikay	Garg       Frontend & AI Integration Developer	   Built the React dashboard, connected real-time WebSocket updates, and integrated Gemini AI for intelligent threat detection.

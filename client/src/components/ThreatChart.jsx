@@ -17,9 +17,11 @@ function ThreatChart({ alerts }) {
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="glass-card p-3 border border-cyan-500/30">
-          <p className="text-white font-semibold">{payload[0].payload.name}</p>
-          <p className="text-cyan-400 text-sm">{payload[0].value} threats</p>
+        <div className="bg-[#1a1a2e] border border-[#2a2a3e] rounded-lg p-3 shadow-xl">
+          <p className="text-white font-bold text-sm mb-1">{payload[0].payload.name}</p>
+          <p className="text-violet-400 text-sm font-semibold">
+            {payload[0].value} {payload[0].value === 1 ? 'threat' : 'threats'}
+          </p>
         </div>
       );
     }
@@ -27,35 +29,38 @@ function ThreatChart({ alerts }) {
   };
 
   return (
-    <div className="glass-card p-6">
-      <h2 className="text-xl font-bold text-white mb-6 flex items-center space-x-2">
-        <span>📊</span>
-        <span>Threat Distribution</span>
-      </h2>
-      <ResponsiveContainer width="100%" height={300}>
+    <div className="bg-[#16213e] border border-[#2a2a3e] rounded-xl p-6">
+      <div className="flex items-center space-x-3 mb-6">
+        <div className="w-10 h-10 bg-violet-500/20 rounded-lg flex items-center justify-center border border-violet-500/30">
+          <span className="text-lg">📊</span>
+        </div>
+        <div>
+          <h2 className="text-lg font-bold text-white">Threat Distribution</h2>
+          <p className="text-xs text-gray-400">By threat type</p>
+        </div>
+      </div>
+      <ResponsiveContainer width="100%" height={250}>
         <BarChart data={chartData}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#2a2a3e" opacity={0.5} />
           <XAxis
             dataKey="name"
-            stroke="#94a3b8"
-            tick={{ fill: '#94a3b8', fontSize: 12 }}
+            stroke="#64748b"
+            tick={{ fill: '#94a3b8', fontSize: 11, fontWeight: 500 }}
+            axisLine={{ stroke: '#2a2a3e' }}
           />
           <YAxis
-            stroke="#94a3b8"
-            tick={{ fill: '#94a3b8', fontSize: 12 }}
+            stroke="#64748b"
+            tick={{ fill: '#94a3b8', fontSize: 11, fontWeight: 500 }}
+            axisLine={{ stroke: '#2a2a3e' }}
           />
           <Tooltip content={<CustomTooltip />} />
           <Bar
             dataKey="threats"
-            fill="url(#colorGradient)"
+            fill="#8b5cf6"
             radius={[8, 8, 0, 0]}
+            stroke="#a78bfa"
+            strokeWidth={1}
           />
-          <defs>
-            <linearGradient id="colorGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#06b6d4" stopOpacity={0.8} />
-              <stop offset="100%" stopColor="#3b82f6" stopOpacity={0.8} />
-            </linearGradient>
-          </defs>
         </BarChart>
       </ResponsiveContainer>
     </div>
