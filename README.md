@@ -40,7 +40,7 @@ There’s a need for an affordable, AI-powered, and easy-to-understand solution 
 
 ## Demo & Presentation
 
-- **Live Demo**: [CyberSight](https://cybersight.vercel.app)
+- **Live Demo**: [CyberSight](https://cyber-sight.vercel.app/)
 - **Presentation**: [Canva Presentation](https://www.canva.com/design/DAG4JUKAeKE/OcDUxPhWnnm6EM3V-iBrOQ/)
 
 ## Quick Start
