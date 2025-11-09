@@ -6,6 +6,7 @@
   "scripts": {
     "start:server": "nodemon server/server.js",
     "start:client": "cd client && npm run dev",
+    "start:log": "cd scripts && node logSimulator.js",
     "dev": "npm-run-all --parallel start:server start:client"
   },
   "keywords": [],
